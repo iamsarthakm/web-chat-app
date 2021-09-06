@@ -1,0 +1,21 @@
+<header>
+  <nav class="navbar navbar-inverse" id="navv">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="/" class="btn btn-info btn-lg ff">Chat App </a>
+    </div>
+    <ul class="nav navbar-nav navbar-right bk">
+        <li class="btn btn-light btn-outline-info"><a href="/">Home</a></li>
+        <li class="btn btn-light btn-outline-info"><a href="/chat">Chat</a></li>
+        <% if(user){ %>
+          <%# <li  class="bk"><a href=""><span id="totalOnline" class="badge">0</span>  User's Online</a></li> %>
+          <li  class="btn btn-light"><a href="#">Hello, <%= user.username %></a></li>
+          <li  class="btn btn-light btn-outline-info"><a href="/user/logout">Logout</a></li>
+        <% } else{ %>
+          <li class="btn btn-light btn-outline-info"><a href="/user/login">Login</a></li>
+          <li class="btn btn-light btn-outline-info"><a href="/user/signup">Signup</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>
+</header>

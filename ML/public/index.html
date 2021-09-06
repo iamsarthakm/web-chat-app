@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8">
+  <title> Text Classifier </title>
+  <script>
+  function addElement() {
+    x=document.getElementById("form1");
+    z=document.getElementById("form2");
+    if(document.getElementById("txt").checked)
+    {
+      x.style.display="block";
+      z.style.display="none";
+    }
+    if(document.getElementById("aud").checked)
+    {
+      z.style.display="block";
+      x.style.display="none";
+    }
+}
+</script>
+</head>
+<body>
+  <iframe name="dummy" style="display:none;"></iframe>
+  <form action="dummy.php" method="post" target="dummy" onsubmit="addElement()">
+    <fieldset>
+      <h4>Type of input:</h4>
+      <input type="radio" id="txt" name="inp" value="txt" required>
+          <label for="txt">Text</label><br>
+      <input type="radio" id="aud" name="inp" value="aud">
+          <label for="aud">Audio</label><br><br>
+      <input id="butt" type="submit" value="Submit">
+      </fieldset>
+  </form>
+  <br>
+
+  <div style="display:none" id="form1">
+    <form action="/predict_text" method="POST"> 
+      <fieldset> 
+      <h3>Text Classifier</h3> 
+      <h4>UserID:</h4>
+      <input type="text" id="userid" name="userid" placeholder="Enter your UserID" required>
+      <br><br>
+      <input type="text" id="message" name="message" placeholder="Write your text message here" required> 
+      <br><br> 
+      <button type ="submit">Predict</button> 
+    </fieldset> 
+  </form>
+  </div>
+
+<div style="display:none" id="form2">
+  <form action="/predict_audio" method="POST" enctype="multipart/form-data"> 
+    <fieldset> 
+    <h3>Text Classifier (Audio File)</h3> 
+    <h4>UserID:</h4>
+      <input type="text" id="userid2" name="userid2" placeholder="Enter your UserID" required>
+      <br><br>
+    <input type="file" id="audio_file" name="audio_file" accept="audio/*" required> 
+    <br><br> 
+    <button type ="submit">Predict</button> 
+  </fieldset> 
+</form>
+</div>
+    
+
+<h4>To exit, click on the button below</h4>
+  <form action="/quit" method="POST">
+        <button type ="submit">Exit</button>
+  </form>
+</body>
+</html>
