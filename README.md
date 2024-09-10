@@ -82,7 +82,7 @@ Follow these steps to run the project locally:
      ```
    - The web server will now be live.
 
-## Access the Project
+## Access the Project in Local after setup
 
 To access the project, open your web browser and go to:
 
